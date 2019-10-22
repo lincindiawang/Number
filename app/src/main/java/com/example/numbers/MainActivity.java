@@ -1,5 +1,6 @@
 package com.example.numbers;
 
+import android.nfc.Tag;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -8,15 +9,23 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    String TAG = MainActivity.class.getSimpleName();
     int counter;
     private TextView number;
+    int secret = new Random().nextInt(10) + 1;
+    private ImageView result;
 
     //private TextView button;
 
@@ -27,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         number = findViewById(R.id.numb);
+
+        result = findViewById(R.id.image_result);
+        Log.d( TAG,"Secret : " + secret);
 
         //button = findViewById(R.id.zero);
 //        button.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +55,23 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 counter ++;
                 number.setText(String.valueOf(counter));
+                result.setAlpha(1.0f);
+                result.setVisibility(View.VISIBLE);
 
+
+                if (counter == secret){
+
+                    Toast.makeText(MainActivity.this , "You Got It !!", Toast.LENGTH_LONG).show();
+                    result.setImageResource(R.drawable.unsmile);
+                    //result.animate().alpha(0.0f).setDuration(5000);
+
+                } else {
+
+                    result.setImageResource(R.drawable.smile);
+                    result.animate().alpha(0.0f).setDuration(1200);
+
+
+                }
 
             }
 
