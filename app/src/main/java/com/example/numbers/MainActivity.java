@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
     int secret = new Random().nextInt(10) + 1;
     private ImageView result;
 
-
-
     //private TextView button;
 
     @Override
