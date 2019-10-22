@@ -63,8 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(MainActivity.this , "You Got It !!", Toast.LENGTH_LONG).show();
                     result.setImageResource(R.drawable.unsmile);
-                    //result.animate().alpha(0.0f).setDuration(5000);
-
+                    
                 } else {
 
                     result.setImageResource(R.drawable.smile);
