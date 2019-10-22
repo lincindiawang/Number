@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     int secret = new Random().nextInt(10) + 1;
     private ImageView result;
 
+
+
     //private TextView button;
 
     @Override
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(MainActivity.this , "You Got It !!", Toast.LENGTH_LONG).show();
                     result.setImageResource(R.drawable.unsmile);
-                    
+
                 } else {
 
                     result.setImageResource(R.drawable.smile);
